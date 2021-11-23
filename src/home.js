@@ -1,24 +1,34 @@
-import {useState} from 'react'
+import { useState, useEffect } from 'react';
+import BlogList from './BlogList';
 
 const Home = () => {
-    const [name, setName] = useState('soumik');
-    const n = name;
+    const [blogs, setBlog] = useState([
+        { title: 'teri meri kahani', body: 'it a long story', author: 'soumik roy', id: 1 },
+        { title: 'chairman', body: 'its a story about love', author: 'Shojib', id: 2 },
+        { title: 'New Love', body: 'its a romantic love story, that everyone knows ', author: 'Sourav Paul', id: 3 }
 
-    const clikButton = () => {
+    ]); 
+const [name, setName] = useState('lungi');
 
-        setName('Roy');
+    const handelDelete = (id) => {
+        const newBlog = blogs.filter(blog => blog.id != id);
+        setBlog(newBlog)
     }
-    return (
+    useEffect(() => {
+        console.log(1);
+    },[name]
+);
 
-        <div className="home">
+return (
+    <div className="home">
+        <BlogList blogs={blogs} title="all array elements" handelDelete={handelDelete} />
+        {/* <BlogList blogs={blogs.filter((blog) => blog.author === 'soumik roy')} title="soumiks bnlog" /> */}
+        <button onClick={()=> setName('nigidi')}>Change name</button>
+        <p>{name}</p>
+    </div>
 
-            <h2>Home</h2>
-            <h2>{n}</h2>
-            <h3>my name is {name}</h3>
-            <button onClick={clikButton}>click me</button>
-            <button>click me again</button>
-        </div>
-    );
+
+);
 }
 
 export default Home;

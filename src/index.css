@@ -33,3 +33,14 @@
   margin: 40px auto;
   padding: 20px;
 }
+
+.blog-preview{
+  color: red;
+  padding: 10px 16px;
+}
+.blog-preview :hover{
+  box-shadow: 0 1px 5px 0 #5f5454;
+}
+.blog-preview h2{
+  color: #f1356d;
+}
